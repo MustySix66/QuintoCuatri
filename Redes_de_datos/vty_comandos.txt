@@ -1,0 +1,13 @@
+username ADMIN secret class
+ip access-list standard ADMIN-HOST
+remark THIS ACL SECURES INCOMING VTY LINES
+permit 192.168.10.10
+deny any
+exit
+line vty 0 15
+login local
+transport input telnet
+access-class ADMIN-HOST in
+end
+
+copy run star
